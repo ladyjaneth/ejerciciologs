@@ -1,0 +1,30 @@
+
+extends layout 
+
+block plantillapug
+    if usuarioExistente
+        .alert.alert-warning.alert-dismissible.fade.show(role='alert')
+            strong El usuario ya se encuentra registrado
+            button.btn-close(data-bs-dismiss="alert" aria-label="Close")
+                        
+    h1(style='color:blue') Registro de Usuario
+    .row 
+        .col 
+            form#form-registro(action='/registro' method='POST')
+                .mb-3
+                    i
+                        label.form-label(for='email') Email
+                    input#email.form-control(type='email' aria-describedby='emailHelp' name='email' required=true)
+                               
+                
+                .mb-3
+                    i
+                        label.form-label(for='password') password
+                    input#password.form-control(type='password' aria-describedby='emailHelp' name='password' required=true)
+                
+                
+                button.btn.btn-primary(type='submit') Registrar
+            br
+            br    
+            a.btn.btn-primary(href="/login") Ir a Login
+

@@ -1,0 +1,32 @@
+
+extends layout
+
+block plantillapug
+
+    if credencialInvalida
+        .alert.alert-warning.alert-dismissible.fade.show(role='alert')
+            strong Credenciales Invalidas
+            button.btn-close(data-bs-dismiss="alert" aria-label="Close")
+
+    h1(style='color:blue') Login de Usuario
+    .row 
+        .col 
+            form#form-login(action='/login' method='POST')
+                .mb-3
+                    i
+                        label.form-label(for='email') Email
+                    input#email.form-control(type='email' aria-describedby='emailHelp' name='email' required=true)
+                               
+                
+                .mb-3
+                    i
+                        label.form-label(for='password') password
+                    input#password.form-control(type='password' aria-describedby='emailHelp' name='password' required=true)
+                
+                
+                button.btn.btn-primary(type='submit') Login
+                br
+                br
+                br
+            a.btn.btn-primary(href="/registro") Ir a Registrar
+
